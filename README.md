@@ -99,6 +99,12 @@ pytest --context=bstack
 
 <img src="media/test-step.png" width="360" alt="Wikipedia search step">
 
+## Telegram
+
+Уведомление бота после прогона (Allure chart → Telegram):
+
+<img src="media/telegram.png" width="360" alt="Telegram notification">
+
 ## UI + API
 
 Веб/API часть того же диплома: [toolshop_diploma](https://github.com/ZaharKr/toolshop_diploma).
