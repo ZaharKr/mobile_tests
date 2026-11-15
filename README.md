@@ -1,34 +1,49 @@
 # Mobile — Wikipedia (Appium)
 
 Автотесты Android Wikipedia: Appium, Pytest, Allure.  
-Два окружения — **local** (эмулятор) и **BrowserStack**, конфиги на pydantic.
+Два окружения — **local** (эмулятор) и **BrowserStack**, конфиги на **pydantic** (`LocalConfig` / `BrowserStackConfig`).
 
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![Appium](https://img.shields.io/badge/Appium-4.x-green)
-![BrowserStack](https://img.shields.io/badge/BrowserStack-App%20Automate-orange)
-![Pytest](https://img.shields.io/badge/Pytest-8.x-red)
-![Allure](https://img.shields.io/badge/Allure-2.x-orange)
-![Jenkins](https://img.shields.io/badge/Jenkins-CI-yellow)
+### Используемые инструменты
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.x-blue" alt="Python">
+  <img src="https://img.shields.io/badge/Appium-4.x-green" alt="Appium">
+  <img src="https://img.shields.io/badge/BrowserStack-App%20Automate-orange" alt="BrowserStack">
+  <img src="https://img.shields.io/badge/Pytest-8.x-red" alt="Pytest">
+  <img src="https://img.shields.io/badge/Allure-2.x-orange" alt="Allure">
+  <img src="https://img.shields.io/badge/Jenkins-CI-yellow" alt="Jenkins">
+  <img src="https://img.shields.io/badge/Telegram-notifications-blue" alt="Telegram">
+</p>
+
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" alt="Python"/>
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" width="40" height="40" alt="Android"/>
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" width="40" height="40" alt="Jenkins"/>
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40" height="40" alt="GitHub"/>
+</p>
 
 | | |
 |---|---|
 | GitHub | https://github.com/ZaharKr/mobile_tests |
 | Jenkins | https://jenkins.qa.guru/job/ZaharKr_mobile_tests/ |
 | Allure | https://jenkins.qa.guru/job/ZaharKr_mobile_tests/10/allure |
+| TestOps | https://allure.qa.guru/project/5432/test-cases |
+| Jira | https://jira.qa.guru/browse/MUL-80 |
 | UI + API | [toolshop_diploma](https://github.com/ZaharKr/toolshop_diploma) |
 
-## Сценарии
+## Список проверок
 
-| Файл | Что проверяет |
-|------|---------------|
-| `tests/test_search.py` | Поиск в Wikipedia |
-| `tests/test_open_article.py` | Открытие статьи из выдачи |
-| `tests/test_clear_search.py` | Очистка поля поиска |
+1. Успешный поиск в Wikipedia.
+2. Открытие статьи из результатов поиска.
+3. Очистка поля поиска.
 
 ## Конфиги
 
-- `LocalConfig` — Appium local (`CONTEXT=local`)
-- `BrowserStackConfig` — BrowserStack (`CONTEXT=bstack`)
+- `LocalConfig` — Appium local (`CONTEXT=local` / `--context=local`)
+- `BrowserStackConfig` — BrowserStack (`CONTEXT=bstack` / `--context=bstack`)
 
 Credentials — только `.env` (dotenv), в git не коммитятся.
 
@@ -67,6 +82,8 @@ allure serve allure-results
 
 ## Jenkins
 
+> [Ссылка на сборку в Jenkins](https://jenkins.qa.guru/job/ZaharKr_mobile_tests/)
+
 Freestyle, label `python`, Git на этот репозиторий.
 
 1. Create Text File → `.env` с `BROWSERSTACK_*`
@@ -80,6 +97,7 @@ pytest --context=bstack
 ```
 
 3. Allure Report → `allure-results`
+4. Telegram: allure-notifications **4.11.1**
 
 Последняя успешная сборка: [#10 SUCCESS — 3 passed](https://jenkins.qa.guru/job/ZaharKr_mobile_tests/10/)
 
@@ -88,6 +106,11 @@ pytest --context=bstack
 ## Allure Report
 
 <img src="media/allure-overview.png" width="720" alt="Allure overview 3 passed">
+
+## Allure TestOps / Jira
+
+TestOps: https://allure.qa.guru/project/5432/test-cases  
+Jira: [MUL-80](https://jira.qa.guru/browse/MUL-80)
 
 ## Прохождение автотеста
 
