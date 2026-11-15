@@ -8,9 +8,14 @@
 ![BrowserStack](https://img.shields.io/badge/BrowserStack-App%20Automate-orange)
 ![Pytest](https://img.shields.io/badge/Pytest-8.x-red)
 ![Allure](https://img.shields.io/badge/Allure-2.x-orange)
+![Jenkins](https://img.shields.io/badge/Jenkins-CI-yellow)
 
-- GitHub: https://github.com/ZaharKr/mobile_tests
-- Jenkins: https://jenkins.qa.guru/job/ZaharKr_mobile_tests/
+| | |
+|---|---|
+| GitHub | https://github.com/ZaharKr/mobile_tests |
+| Jenkins | https://jenkins.qa.guru/job/ZaharKr_mobile_tests/ |
+| Allure | https://jenkins.qa.guru/job/ZaharKr_mobile_tests/10/allure |
+| UI + API | [toolshop_diploma](https://github.com/ZaharKr/toolshop_diploma) |
 
 ## Сценарии
 
@@ -38,7 +43,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-В `.env` указать `BROWSERSTACK_USERNAME` / `BROWSERSTACK_ACCESS_KEY`.
+В `.env` указать `BROWSERSTACK_USERNAME` / `BROWSERSTACK_ACCESS_KEY` и `BROWSERSTACK_APP`.
 
 ## Запуск
 
@@ -58,6 +63,8 @@ pytest --context=local
 allure serve allure-results
 ```
 
+В Allure: steps, screenshot, page source, video (BrowserStack).
+
 ## Jenkins
 
 Freestyle, label `python`, Git на этот репозиторий.
@@ -73,6 +80,24 @@ pytest --context=bstack
 ```
 
 3. Allure Report → `allure-results`
+
+Последняя успешная сборка: [#10 SUCCESS — 3 passed](https://jenkins.qa.guru/job/ZaharKr_mobile_tests/10/)
+
+<img src="media/jenkins-success.png" width="720" alt="Jenkins mobile SUCCESS">
+
+## Allure Report
+
+<img src="media/allure-overview.png" width="720" alt="Allure overview 3 passed">
+
+## Прохождение автотеста
+
+Поиск → статья → очистка поля:
+
+<img src="media/wikipedia_flow.gif" width="360" alt="Wikipedia mobile flow">
+
+Скрин шага (BrowserStack):
+
+<img src="media/test-step.png" width="360" alt="Wikipedia search step">
 
 ## UI + API
 
