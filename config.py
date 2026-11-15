@@ -37,8 +37,8 @@ class BrowserStackConfig(BaseModel):
         default_factory=lambda: _env("BROWSERSTACK_ACCESS_KEY") or _env("BROWSERSTACK_KEY")
     )
     app: str = Field(default_factory=lambda: _env("BROWSERSTACK_APP", "bs://sample.app"))
-    device: str = Field(default_factory=lambda: _env("BROWSERSTACK_DEVICE", "Google Pixel 3"))
-    os_version: str = Field(default_factory=lambda: _env("BROWSERSTACK_OS_VERSION", "9.0"))
+    device: str = Field(default_factory=lambda: _env("BROWSERSTACK_DEVICE", "Google Pixel 7"))
+    os_version: str = Field(default_factory=lambda: _env("BROWSERSTACK_OS_VERSION", "13.0"))
     timeout: float = Field(default_factory=lambda: float(_env("TIMEOUT", "30")))
 
     def model_post_init(self, __context) -> None:

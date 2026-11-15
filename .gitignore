@@ -4,6 +4,7 @@ __pycache__/
 allure-results/
 allure-report/
 .env
+jenkins/env.for-jenkins.txt
 *.apk
 *.pyc
 .idea/

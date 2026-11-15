@@ -6,6 +6,7 @@ from appium.webdriver.webdriver import WebDriver
 from config import BrowserStackConfig, LocalConfig, load_config
 from drivers import create_driver
 from helpers import attach
+from helpers.onboarding import skip_onboarding
 
 
 def pytest_addoption(parser):
@@ -26,6 +27,7 @@ def config(request) -> LocalConfig | BrowserStackConfig:
 @pytest.fixture
 def driver(config: LocalConfig | BrowserStackConfig) -> WebDriver:
     drv = create_driver(config)
+    skip_onboarding(drv, timeout=min(10.0, float(config.timeout)))
     yield drv
     session_id = drv.session_id
     attach.screenshot(drv)
